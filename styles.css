@@ -25,6 +25,23 @@ body {
   color: var(--text);
 }
 
+.iphone-device {
+  background: linear-gradient(145deg, #0f172a, #1f2937);
+  padding: 18px;
+  border-radius: 68px;
+  box-shadow: 0 28px 60px rgba(15, 23, 42, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  position: relative;
+}
+
+.iphone-device::after {
+  content: "";
+  position: absolute;
+  inset: 12px;
+  border-radius: 60px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  pointer-events: none;
+}
+
 button,
 input,
 select {
@@ -38,6 +55,9 @@ select {
   height: min(880px, calc(100vh - 2rem));
   max-height: 880px;
   display: grid;
+  grid-template-rows: auto 54px 1fr auto;
+  overflow: hidden;
+  box-shadow: inset 0 0 0 1px rgba(15, 23, 42, 0.05);
   grid-template-rows: auto 12px 1fr auto;
   overflow: hidden;
   box-shadow: 0 20px 50px rgba(15, 23, 42, 0.15);
@@ -58,6 +78,59 @@ select {
 }
 
 .notch {
+  width: 200px;
+  height: 44px;
+  background: linear-gradient(135deg, #0b0f1d, #1e293b);
+  border-radius: 0 0 24px 24px;
+  justify-self: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+  position: relative;
+  box-shadow: inset 0 -2px 4px rgba(15, 23, 42, 0.6);
+}
+
+.notch::before {
+  content: "";
+  position: absolute;
+  inset: 4px 12px auto;
+  height: 8px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.notch .speaker {
+  width: 74px;
+  height: 10px;
+  border-radius: 8px;
+  background: linear-gradient(90deg, rgba(148, 163, 184, 0.25), rgba(15, 23, 42, 0.8));
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.18);
+}
+
+.notch .camera,
+.notch .sensor {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, rgba(147, 197, 253, 0.9), #020617 65%);
+  position: relative;
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.25);
+}
+
+.notch .camera::after,
+.notch .sensor::after {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  border-radius: 50%;
+  background: rgba(2, 6, 23, 0.85);
+}
+
+.notch .sensor {
+  width: 10px;
+  height: 10px;
+  background: radial-gradient(circle at 30% 30%, rgba(110, 231, 183, 0.65), #020617 65%);
   width: 160px;
   height: 38px;
   background: #000;
@@ -202,6 +275,86 @@ h2 {
 }
 
 .face-id-frame {
+  width: 180px;
+  height: 180px;
+  border-radius: 36px;
+  background: radial-gradient(circle at 50% 50%, rgba(30, 64, 175, 0.18), rgba(15, 23, 42, 0.65));
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  display: grid;
+  place-items: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: inset 0 0 32px rgba(14, 116, 244, 0.18);
+}
+
+.face-id-ring {
+  position: absolute;
+  width: 148px;
+  height: 148px;
+  border-radius: 32px;
+  border: 3px solid rgba(96, 165, 250, 0.35);
+  filter: drop-shadow(0 0 12px rgba(59, 130, 246, 0.4));
+  animation: faceIdPulse 3s ease-in-out infinite;
+}
+
+.face-id-ring.inner {
+  width: 116px;
+  height: 116px;
+  border: 2px dashed rgba(96, 165, 250, 0.4);
+  animation-delay: -1.2s;
+}
+
+.face-id-face {
+  position: relative;
+  width: 72px;
+  height: 72px;
+  border-radius: 20px;
+  border: 2px solid rgba(96, 165, 250, 0.7);
+  display: grid;
+  grid-template-rows: 1fr auto;
+  justify-items: center;
+  padding: 14px 12px 12px;
+  backdrop-filter: blur(10px);
+  background: rgba(15, 23, 42, 0.4);
+  box-shadow: 0 0 18px rgba(59, 130, 246, 0.25);
+}
+
+.face-eye {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(191, 219, 254, 0.8);
+  box-shadow: inset 0 0 4px rgba(30, 64, 175, 0.6);
+}
+
+.face-eye.left {
+  justify-self: start;
+}
+
+.face-eye.right {
+  justify-self: end;
+}
+
+.face-mouth {
+  width: 32px;
+  height: 16px;
+  border-radius: 0 0 16px 16px;
+  border: 3px solid rgba(191, 219, 254, 0.8);
+  border-top: none;
+  margin-top: 10px;
+  box-shadow: inset 0 2px 4px rgba(59, 130, 246, 0.25);
+}
+
+@keyframes faceIdPulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.85;
+  }
+  50% {
+    transform: scale(1.08);
+    opacity: 0.35;
+  }
   width: 140px;
   height: 140px;
   border-radius: 32px;

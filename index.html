@@ -13,6 +13,22 @@
     />
   </head>
   <body>
+    <div class="iphone-device">
+      <div class="iphone-frame">
+        <header class="status-bar">
+          <span class="time">9:41</span>
+          <div class="status-icons">
+            <span class="icon">📶</span>
+            <span class="icon">📡</span>
+            <span class="icon">🔋</span>
+          </div>
+        </header>
+        <div class="notch" role="presentation">
+          <span class="camera"></span>
+          <span class="speaker"></span>
+          <span class="sensor"></span>
+        </div>
+        <main class="screen-container" id="screen-container">
     <div class="iphone-frame">
       <header class="status-bar">
         <span class="time">9:41</span>
@@ -89,6 +105,13 @@
           <div class="screen-content centered">
             <div class="face-id">
               <div class="face-id-frame">
+                <div class="face-id-ring"></div>
+                <div class="face-id-ring inner"></div>
+                <div class="face-id-face">
+                  <span class="face-eye left"></span>
+                  <span class="face-eye right"></span>
+                  <span class="face-mouth"></span>
+                </div>
                 <div class="face-id-grid"></div>
               </div>
               <span>Face ID</span>
@@ -504,6 +527,7 @@
         <button class="nav-item" data-action="go" data-target="energy">⚡</button>
         <button class="nav-item" data-action="go" data-target="settings">⚙️</button>
       </nav>
+      </div>
     </div>
 
     <aside class="side-menu" id="side-menu" aria-hidden="true">
