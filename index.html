@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>iHome - Prototipo</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="iphone-device">
+      <div class="iphone-frame">
+        <div class="status-area" role="presentation">
+          <span class="time" aria-hidden="true">9:41</span>
+          <div class="status-icons" aria-hidden="true">
+            <span class="status-icon signal">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </span>
+            <span class="status-icon wifi">
+              <span></span>
+            </span>
+            <span class="status-icon battery">
+              <span class="battery-level"></span>
+            </span>
+          </div>
+          <div class="device-notch" aria-hidden="true">
+            <span class="notch-sensor"></span>
+            <span class="notch-speaker"></span>
+            <span class="notch-camera">
+              <span class="notch-reflection"></span>
+            </span>
+          </div>
+        </div>
+        <main class="screen-container" id="screen-container">
+        <section class="screen active" data-screen="welcome">
+          <div class="screen-content">
+            <img src="logo.svg" alt="iHome" class="logo" onerror="this.style.display='none'" />
+            <h1>iHome</h1>
+            <p>Controla tu hogar inteligente desde una sola app.</p>
+            <button class="primary" data-action="go" data-target="auth-login">
+              Continuar
+            </button>
+          </div>
+        </section>
+
+        <section class="screen" data-screen="auth-login">
+          <div class="screen-content">
+            <h1>¡Hola de nuevo!</h1>
+            <p>Ingresa para gestionar tu casa conectada.</p>
+            <label class="form-field">
+              <span>Correo electrónico</span>
+              <input type="email" placeholder="nombre@correo.com" />
+            </label>
+            <label class="form-field">
+              <span>Contraseña</span>
+              <input type="password" placeholder="••••••••" />
+            </label>
+            <button class="primary" data-action="go" data-target="verify-id">
+              Continuar con correo
+            </button>
+            <div class="divider"><span>o</span></div>
+            <button class="secondary" data-action="go" data-target="verify-id">
+              Iniciar sesión con Apple
+            </button>
+            <button class="link" data-action="go" data-target="auth-register">
+              Crear cuenta
+            </button>
+          </div>
+        </section>
+
+        <section class="screen" data-screen="auth-register">
+          <div class="screen-content">
+            <h1>Regístrate</h1>
+            <p>Configura tu nuevo hogar inteligente.</p>
+            <label class="form-field">
+              <span>Nombre completo</span>
+              <input type="text" placeholder="Carolina García" />
+            </label>
+            <label class="form-field">
+              <span>Correo electrónico</span>
+              <input type="email" placeholder="nombre@correo.com" />
+            </label>
+            <label class="form-field">
+              <span>Contraseña</span>
+              <input type="password" placeholder="••••••••" />
+            </label>
+            <button class="primary" data-action="go" data-target="verify-id">
+              Continuar
+            </button>
+            <button class="link" data-action="go" data-target="auth-login">
+              Ya tengo cuenta
+            </button>
+          </div>
+        </section>
+
+        <section class="screen face-id-screen" data-screen="verify-id">
+          <div class="screen-content centered">
+            <span class="face-id-chip" aria-hidden="true">Face ID</span>
+            <div class="face-id">
+              <div class="face-id-scan" aria-hidden="true">
+                <div class="face-id-rings" aria-hidden="true"></div>
+                <div class="face-id-icon" role="img" aria-label="Face ID">
+                  <svg viewBox="0 0 128 128">
+                    <path
+                      class="face-frame"
+                      d="M36 20H28c-6.627 0-12 5.373-12 12v8m76-20h8c6.627 0 12 5.373 12 12v8M16 68v8c0 6.627 5.373 12 12 12h8m56-20v8c0 6.627-5.373 12-12 12h-8"
+                    />
+                    <circle class="face-eye" cx="48" cy="58" r="6" />
+                    <circle class="face-eye" cx="80" cy="58" r="6" />
+                    <path class="face-mouth" d="M46 84c8 8 24 8 32 0" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <p class="face-id-instruction">Mira hacia el iPhone para completar el acceso.</p>
+            <button class="primary" data-action="go" data-target="home">
+              Continuar
+            </button>
+          </div>
+        </section>
+
+        <section class="screen" data-screen="home">
+          <div class="screen-content">
+            <header class="section-header">
+              <button class="icon-button" data-action="toggle-menu" aria-label="Abrir menú">
+                ☰
+              </button>
+              <div>
+                <p class="subtitle">Buen día</p>
+                <h1>iHome</h1>
+              </div>
+              <button class="icon-button" data-action="go" data-target="notifications" aria-label="Ver notificaciones">
+                🔔
+              </button>
+            </header>
+            <div class="card-grid">
+              <article class="card" data-action="go" data-target="lighting">
+                <h2>Iluminación</h2>
+                <p>12 luces encendidas</p>
+              </article>
+              <article class="card" data-action="go" data-target="climate">
+                <h2>Climatización</h2>
+                <p>Calefacción activa</p>
+              </article>
+              <article class="card" data-action="go" data-target="security">
+                <h2>Seguridad</h2>
+                <p>2 cámaras grabando</p>
+              </article>
+              <article class="card" data-action="go" data-target="energy">
+                <h2>Energía</h2>
+                <p>Consumo estable</p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="screen" data-screen="notifications">
+          <div class="screen-content">
+            <h1>Notificaciones</h1>
+            <ul class="notification-list">
+              <li>
+                <span class="title">Puerta principal</span>
+                <span class="time">Ahora</span>
+                <p>Se ha desbloqueado.</p>
+              </li>
+              <li>
+                <span class="title">Cámara Patio</span>
+                <span class="time">Hace 5 min</span>
+                <p>Movimiento detectado.</p>
+              </li>
+              <li>
+                <span class="title">Climatización</span>
+                <span class="time">Hace 30 min</span>
+                <p>Temperatura ajustada a 22 °C.</p>
+              </li>
+            </ul>
+            <button class="secondary" data-action="back">Volver</button>
+          </div>
+        </section>
+
+        <section class="screen" data-screen="lighting">
+          <div class="screen-content">
+            <header class="section-header">
+              <button class="icon-button" data-action="back" aria-label="Volver">←</button>
+              <h1>Iluminación</h1>
+              <button class="icon-button" data-action="go" data-target="lighting-detail" aria-label="Detalles">⋯</button>
+            </header>
+            <div class="toggle-card">
+              <span>Luces sala</span>
+              <label class="switch">
+                <input type="checkbox" checked />
+                <span class="slider"></span>
+              </label>
+            </div>
+            <div class="toggle-card">
+              <span>Luces cocina</span>
+              <label class="switch">
+                <input type="checkbox" />
+                <span class="slider"></span>
+              </label>
+            </div>
+            <div class="toggle-card">
+              <span>Luces exteriores</span>
+              <label class="switch">
+                <input type="checkbox" />
+                <span class="slider"></span>
+              </label>
+            </div>
+            <div class="slider-card">
+              <span>Intensidad general</span>
+              <input type="range" min="0" max="100" value="65" />
+              <span class="range-value">65%</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="screen" data-screen="lighting-detail">
+          <div class="screen-content">
+            <header class="section-header">
+              <button class="icon-button" data-action="back">←</button>
+              <h1>Colores</h1>
+              <span></span>
+            </header>
+            <div class="color-grid" id="color-palette">
+              <button style="background: #ffffff" data-color="#ffffff"></button>
+              <button style="background: #f4d03f" data-color="#f4d03f"></button>
+              <button style="background: #f1948a" data-color="#f1948a"></button>
+              <button style="background: #85c1e9" data-color="#85c1e9"></button>
+              <button style="background: #58d68d" data-color="#58d68d"></button>
+              <button style="background: #af7ac5" data-color="#af7ac5"></button>
+              <button style="background: #f5b7b1" data-color="#f5b7b1"></button>
+              <button style="background: linear-gradient(45deg,#ff7675,#74b9ff)" data-color="#ff7675"></button>
+            </div>
+            <div class="color-preview" id="color-preview">
+              <span>Color seleccionado</span>
+              <div class="preview-circle"></div>
+            </div>
+            <label class="form-field">
+              <span>Temperatura de color</span>
+              <input type="range" min="2000" max="6500" value="3200" data-unit="K" />
+              <span class="range-value">3200 K</span>
+            </label>
+          </div>
+        </section>
+
+        <section class="screen" data-screen="climate">
+          <div class="screen-content">
+            <header class="section-header">
+              <button class="icon-button" data-action="back">←</button>
+              <h1>Climatización</h1>
+              <span></span>
+            </header>
+            <div class="climate-panel">
+              <div class="temperature-display">
+                <span>Temperatura actual</span>
+                <strong><span id="current-temp">22.0</span> °C</strong>
+              </div>
+              <div class="temperature-control">
+                <button class="circle-button" data-temp-change="-0.5">−</button>
+                <div class="target-temp">
+                  <span>Objetivo</span>
+                  <strong><span id="target-temp">23.5</span> °C</strong>
+                </div>
+                <button class="circle-button" data-temp-change="0.5">+</button>
+              </div>
+              <div class="mode-toggle">
+                <button class="chip active" data-mode="heat">Calefacción</button>
+                <button class="chip" data-mode="cool">Refrigeración</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="screen" data-screen="security">
+          <div class="screen-content">
+            <header class="section-header">
+              <button class="icon-button" data-action="back">←</button>
+              <h1>Seguridad</h1>
+              <button class="icon-button" data-action="go" data-target="security-settings">⚙️</button>
+            </header>
+            <div class="alert-card">
+              <span>Estado de la alarma</span>
+              <strong id="alarm-state">Activada</strong>
+              <div class="button-row">
+                <button class="primary" data-action="toggle-alarm">Activar</button>
+                <button class="danger" data-action="toggle-alarm">Desactivar</button>
+              </div>
+            </div>
+            <h2>Cámaras</h2>
+            <div class="camera-grid">
+              <div class="camera-card" data-action="go" data-target="camera-living">
+                <span>Sala</span>
+                <div class="camera-feed" data-label="REC"></div>
+              </div>
+              <div class="camera-card" data-action="go" data-target="camera-garage">
+                <span>Garaje</span>
+                <div class="camera-feed" data-label="REC"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="screen" data-screen="camera-living">
+          <div class="screen-content">
+            <header class="section-header">
+              <button class="icon-button" data-action="back">←</button>
+              <h1>Cámara Sala</h1>
+              <button class="icon-button">⤴︎</button>
+            </header>
+            <div class="camera-view large" data-label="EN VIVO"></div>
+            <div class="button-row">
+              <button class="danger">Parar</button>
+              <button class="secondary">Grabar</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="screen" data-screen="camera-garage">
+          <div class="screen-content">
+            <header class="section-header">
+              <button class="icon-button" data-action="back">←</button>
+              <h1>Cámara Garaje</h1>
+              <button class="icon-button">⤴︎</button>
+            </header>
+            <div class="camera-view large" data-label="REPRODUCCIÓN"></div>
+            <div class="button-row">
+              <button class="secondary">Reanudar</button>
+              <button class="secondary">Capturar</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="screen" data-screen="energy">
+          <div class="screen-content">
+            <header class="section-header">
+              <button class="icon-button" data-action="back">←</button>
+              <h1>Energía</h1>
+              <button class="icon-button" data-action="go" data-target="new-device">＋</button>
+            </header>
+            <div class="energy-summary">
+              <div>
+                <span>Electricidad</span>
+                <strong>32€</strong>
+              </div>
+              <div>
+                <span>Gas</span>
+                <strong>18€</strong>
+              </div>
+            </div>
+            <div class="device-list">
+              <article class="device-card">
+                <header>
+                  <span>Lavavajillas Bosch SMS45</span>
+                  <label class="switch small">
+                    <input type="checkbox" checked />
+                    <span class="slider"></span>
+                  </label>
+                </header>
+                <p>Rutina: Cocina matutina</p>
+                <p>Próxima ejecución: 19:00</p>
+              </article>
+              <article class="device-card">
+                <header>
+                  <span>Termo eléctrico</span>
+                  <label class="switch small">
+                    <input type="checkbox" />
+                    <span class="slider"></span>
+                  </label>
+                </header>
+                <p>Modo ahorro activado</p>
+                <p>Último uso: Hace 2h</p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="screen" data-screen="new-device">
+          <div class="screen-content">
+            <header class="section-header">
+              <button class="icon-button" data-action="back">←</button>
+              <h1>Nuevo dispositivo</h1>
+              <span></span>
+            </header>
+            <form class="form">
+              <label class="form-field">
+                <span>Nombre</span>
+                <input type="text" placeholder="Lavavajillas" />
+              </label>
+              <label class="form-field">
+                <span>Habitación</span>
+                <input type="text" placeholder="Cocina" />
+              </label>
+              <label class="form-field">
+                <span>Rutina</span>
+                <input type="text" placeholder="Mañana" />
+              </label>
+              <label class="form-field">
+                <span>Sección</span>
+                <select>
+                  <option>Electrodomésticos</option>
+                  <option>Iluminación</option>
+                  <option>Climatización</option>
+                  <option>Seguridad</option>
+                </select>
+              </label>
+              <label class="toggle-card">
+                <span>Favorito</span>
+                <label class="switch">
+                  <input type="checkbox" checked />
+                  <span class="slider"></span>
+                </label>
+              </label>
+              <button class="primary" type="button" data-action="go" data-target="energy">
+                Guardar
+              </button>
+            </form>
+          </div>
+        </section>
+
+        <section class="screen" data-screen="new-section">
+          <div class="screen-content">
+            <header class="section-header">
+              <button class="icon-button" data-action="back">←</button>
+              <h1>Nueva sección</h1>
+              <span></span>
+            </header>
+            <div class="option-list">
+              <label class="option">
+                <span>Electrodomésticos</span>
+                <label class="switch small">
+                  <input type="checkbox" checked />
+                  <span class="slider"></span>
+                </label>
+              </label>
+              <label class="option">
+                <span>Iluminación</span>
+                <label class="switch small">
+                  <input type="checkbox" checked />
+                  <span class="slider"></span>
+                </label>
+              </label>
+              <label class="option">
+                <span>Seguridad</span>
+                <label class="switch small">
+                  <input type="checkbox" checked />
+                  <span class="slider"></span>
+                </label>
+              </label>
+              <label class="option">
+                <span>Puertas</span>
+                <label class="switch small">
+                  <input type="checkbox" />
+                  <span class="slider"></span>
+                </label>
+              </label>
+              <label class="option">
+                <span>Ventanas</span>
+                <label class="switch small">
+                  <input type="checkbox" />
+                  <span class="slider"></span>
+                </label>
+              </label>
+              <label class="option">
+                <span>Climatización</span>
+                <label class="switch small">
+                  <input type="checkbox" />
+                  <span class="slider"></span>
+                </label>
+              </label>
+              <label class="option">
+                <span>Asistentes</span>
+                <label class="switch small">
+                  <input type="checkbox" checked />
+                  <span class="slider"></span>
+                </label>
+              </label>
+              <button class="primary" data-action="go" data-target="settings">
+                Guardar sección
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <section class="screen" data-screen="settings">
+          <div class="screen-content">
+            <header class="section-header">
+              <button class="icon-button" data-action="back">←</button>
+              <h1>Ajustes</h1>
+              <span></span>
+            </header>
+            <div class="form">
+              <label class="form-field">
+                <span>Usuario</span>
+                <input type="text" value="Carolina García" />
+              </label>
+              <label class="form-field">
+                <span>Contraseña</span>
+                <input type="password" value="••••••••" />
+              </label>
+              <label class="toggle-card">
+                <span>Notificaciones</span>
+                <label class="switch">
+                  <input type="checkbox" checked />
+                  <span class="slider"></span>
+                </label>
+              </label>
+              <label class="toggle-card">
+                <span>Modo oscuro</span>
+                <label class="switch">
+                  <input type="checkbox" />
+                  <span class="slider"></span>
+                </label>
+              </label>
+              <button class="danger" type="button">Cerrar sesión</button>
+            </div>
+          </div>
+        </section>
+      </main>
+      <nav class="bottom-nav">
+        <button class="nav-item active" data-action="go" data-target="home">🏠</button>
+        <button class="nav-item" data-action="go" data-target="lighting">💡</button>
+        <button class="nav-item" data-action="go" data-target="security">🛡️</button>
+        <button class="nav-item" data-action="go" data-target="energy">⚡</button>
+        <button class="nav-item" data-action="go" data-target="settings">⚙️</button>
+      </nav>
+      </div>
+    </div>
+
+    <aside class="side-menu" id="side-menu" aria-hidden="true">
+      <header>
+        <h2>Menú</h2>
+        <button class="icon-button" data-action="toggle-menu">✕</button>
+      </header>
+      <ul>
+        <li data-action="go" data-target="home">Inicio</li>
+        <li data-action="go" data-target="lighting">Iluminación</li>
+        <li data-action="go" data-target="climate">Climatización</li>
+        <li data-action="go" data-target="security">Seguridad</li>
+        <li data-action="go" data-target="energy">Energía</li>
+        <li data-action="go" data-target="new-section">Nueva sección</li>
+        <li data-action="go" data-target="settings">Configuración</li>
+      </ul>
+    </aside>
+    <div class="backdrop" id="backdrop" hidden></div>
+    <script src="app.js"></script>
+  </body>
+</html>
