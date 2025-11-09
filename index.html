@@ -15,6 +15,31 @@
   <body>
     <div class="iphone-device">
       <div class="iphone-frame">
+        <div class="status-area" role="presentation">
+          <span class="time" aria-hidden="true">9:41</span>
+          <div class="status-icons" aria-hidden="true">
+            <span class="status-icon signal">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </span>
+            <span class="status-icon wifi">
+              <span></span>
+            </span>
+            <span class="status-icon battery">
+              <span class="battery-level"></span>
+            </span>
+          </div>
+          <div class="device-notch" aria-hidden="true">
+            <span class="notch-sensor"></span>
+            <span class="notch-speaker"></span>
+            <span class="notch-camera">
+              <span class="notch-reflection"></span>
+            </span>
+          </div>
+        </div>
+        <main class="screen-container" id="screen-container">
         <div class="status-area">
           <span class="time">9:41</span>
           <div class="device-notch" role="presentation">
@@ -110,6 +135,26 @@
           </div>
         </section>
 
+        <section class="screen face-id-screen" data-screen="verify-id">
+          <div class="screen-content centered">
+            <span class="face-id-chip" aria-hidden="true">Face ID</span>
+            <div class="face-id">
+              <div class="face-id-scan" aria-hidden="true">
+                <div class="face-id-rings" aria-hidden="true"></div>
+                <div class="face-id-icon" role="img" aria-label="Face ID">
+                  <svg viewBox="0 0 128 128">
+                    <path
+                      class="face-frame"
+                      d="M36 20H28c-6.627 0-12 5.373-12 12v8m76-20h8c6.627 0 12 5.373 12 12v8M16 68v8c0 6.627 5.373 12 12 12h8m56-20v8c0 6.627-5.373 12-12 12h-8"
+                    />
+                    <circle class="face-eye" cx="48" cy="58" r="6" />
+                    <circle class="face-eye" cx="80" cy="58" r="6" />
+                    <path class="face-mouth" d="M46 84c8 8 24 8 32 0" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <p class="face-id-instruction">Mira hacia el iPhone para completar el acceso.</p>
         <section class="screen" data-screen="verify-id">
           <div class="screen-content centered">
             <div class="face-id">
