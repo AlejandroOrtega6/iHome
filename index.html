@@ -15,6 +15,13 @@
   <body>
     <div class="iphone-device">
       <div class="iphone-frame">
+        <div class="status-area">
+          <span class="time">9:41</span>
+          <div class="device-notch" role="presentation">
+            <span class="notch-lens"></span>
+            <span class="notch-speaker"></span>
+            <span class="notch-dot"></span>
+          </div>
         <header class="status-bar">
           <span class="time">9:41</span>
           <div class="status-icons">
@@ -22,6 +29,8 @@
             <span class="icon">📡</span>
             <span class="icon">🔋</span>
           </div>
+        </div>
+        <main class="screen-container" id="screen-container">
         </header>
         <div class="notch" role="presentation">
           <span class="camera"></span>
@@ -104,6 +113,46 @@
         <section class="screen" data-screen="verify-id">
           <div class="screen-content centered">
             <div class="face-id">
+              <div class="face-id-scan" aria-hidden="true">
+                <div class="face-id-icon">
+                  <svg viewBox="0 0 128 128" role="img" aria-label="Icono de Face ID">
+                    <defs>
+                      <linearGradient id="face-id-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#22d3ee" />
+                        <stop offset="100%" stop-color="#2563eb" />
+                      </linearGradient>
+                    </defs>
+                    <path
+                      class="face-corner"
+                      d="M40 12H28c-8.837 0-16 7.163-16 16v12"
+                      stroke="url(#face-id-gradient)"
+                    />
+                    <path
+                      class="face-corner"
+                      d="M88 12h12c8.837 0 16 7.163 16 16v12"
+                      stroke="url(#face-id-gradient)"
+                    />
+                    <path
+                      class="face-corner"
+                      d="M12 68v12c0 8.837 7.163 16 16 16h12"
+                      stroke="url(#face-id-gradient)"
+                    />
+                    <path
+                      class="face-corner"
+                      d="M116 68v12c0 8.837-7.163 16-16 16h-12"
+                      stroke="url(#face-id-gradient)"
+                    />
+                    <circle class="face-eye" cx="48" cy="60" r="6" fill="url(#face-id-gradient)" />
+                    <circle class="face-eye" cx="80" cy="60" r="6" fill="url(#face-id-gradient)" />
+                    <path
+                      class="face-mouth"
+                      d="M44 86c8 10 28 10 36 0"
+                      stroke="url(#face-id-gradient)"
+                    />
+                  </svg>
+                </div>
+              </div>
+              <span class="face-id-label">Face ID</span>
               <div class="face-id-frame">
                 <div class="face-id-ring"></div>
                 <div class="face-id-ring inner"></div>
