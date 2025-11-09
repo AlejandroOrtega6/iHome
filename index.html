@@ -22,6 +22,8 @@
             <span class="notch-speaker"></span>
             <span class="notch-dot"></span>
           </div>
+        <header class="status-bar">
+          <span class="time">9:41</span>
           <div class="status-icons">
             <span class="icon">📶</span>
             <span class="icon">📡</span>
@@ -29,6 +31,24 @@
           </div>
         </div>
         <main class="screen-container" id="screen-container">
+        </header>
+        <div class="notch" role="presentation">
+          <span class="camera"></span>
+          <span class="speaker"></span>
+          <span class="sensor"></span>
+        </div>
+        <main class="screen-container" id="screen-container">
+    <div class="iphone-frame">
+      <header class="status-bar">
+        <span class="time">9:41</span>
+        <div class="status-icons">
+          <span class="icon">📶</span>
+          <span class="icon">📡</span>
+          <span class="icon">🔋</span>
+        </div>
+      </header>
+      <div class="notch"></div>
+      <main class="screen-container" id="screen-container">
         <section class="screen active" data-screen="welcome">
           <div class="screen-content">
             <img src="logo.svg" alt="iHome" class="logo" onerror="this.style.display='none'" />
@@ -133,6 +153,17 @@
                 </div>
               </div>
               <span class="face-id-label">Face ID</span>
+              <div class="face-id-frame">
+                <div class="face-id-ring"></div>
+                <div class="face-id-ring inner"></div>
+                <div class="face-id-face">
+                  <span class="face-eye left"></span>
+                  <span class="face-eye right"></span>
+                  <span class="face-mouth"></span>
+                </div>
+                <div class="face-id-grid"></div>
+              </div>
+              <span>Face ID</span>
             </div>
             <p class="muted">Acerca tu iPhone para continuar.</p>
             <button class="primary" data-action="go" data-target="home">
